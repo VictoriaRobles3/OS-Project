@@ -37,34 +37,48 @@ class ReadFile {
     }
     public static void main (String[] args){
         ReadFile read1 = new ReadFile();
-
+        String fileName = "";
         Scanner sc = new Scanner(System.in);
-        System.out.println("Hello, select the file number and press Enter: ");
-        System.out.println("1. processes.txt");
-        System.out.println("2. process.ppt");
-        System.out.println("3. sampleData2.txt");
-        int input = sc.nextInt();
-        System.out.println("You chose: " + input);
-        sc.close();
-        List<Process> processes = new ArrayList<>();
-        switch(input){
-            case 1:
-                processes = read1.readFile("processes.txt");
+        while(true){
+            System.out.println("Hello, select the file number and press Enter: ");
+            System.out.println("1. processes.txt");
+            System.out.println("2. process.ppt");
+            System.out.println("3. sampleData2.txt");
+            System.out.println("4. Exit");
+
+            if(sc.hasNextInt()){
+                int input = sc.nextInt();
+                switch(input){
+                    case 1:
+                        fileName = "processes.txt";
+                        break;
+                    case 2: 
+                        fileName = "process.ppt";
+                        break;
+                    case 3: 
+                        fileName = "sampleData2.txt";
+                        break;
+                    case 4:
+                        System.out.println("Terminating Program.");
+                        sc.close();
+                        return;
+                    default:
+                        System.out.println("Not a valid option. Please try again.");
+                        continue;
+                }
                 break;
-            case 2: 
-                processes = read1.readFile("process.ppt");
-                break;
-            case 3: 
-                processes = read1.readFile("sampleData2.txt");
-                break;
-            default:
-                System.err.println("Not a valid option. Try again.");
+            }
+            else{
+                System.out.println("\nInvalid input. You must enter a number.");
+                sc.next();
+            }
         }
 
-        //List<Process> processes = read1.readFile(input);
+        List<Process> processes = read1.readFile(fileName);
 
         for(Process p: processes){
             System.out.println(p);
        }
+       sc.close();
     }
 }
