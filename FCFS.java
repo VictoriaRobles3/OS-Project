@@ -17,6 +17,41 @@ public class FCFS {
         return processesList;
     }
 
+    public void FCFSAlgorithm(List<Process> processes){
+        int wt = 0;
+        int tat = 0;
+        int currentTime = 0;
+        
+        sortByArrivalTime(processes);
+        
+        for(Process p : processes){
+            if(currentTime < p.arrival_time){
+                currentTime = p.arrival_time;
+            }
+            p.waitingTime = currentTime - p.arrival_time;
+            p.completionTime = currentTime + p.burst_time;
+            p.turnAroundTime = p.completionTime - p.arrival_time;
+            currentTime += p.burst_time;
+
+            wt += p.waitingTime;
+            tat += p.turnAroundTime;
+        }
+        System.out.println("\n------------------- FCFS/FIFO Scheduling Algorithm -------------------");
+        System.out.printf("%-5s %-10s %-10s %-10s %-15s %-15s\n", 
+            "PID", "Arrival", "Burst", "Start", "Waiting Time", "Turnaround Time");
+        for (Process p : processes) {
+            System.out.printf("%-5d %-10d %-10d %-10d %-15d %-15d\n", 
+                p.pid, p.arrival_time, p.burst_time, p.arrival_time + p.waitingTime, p.waitingTime, p.turnAroundTime);
+        }
+
+        double averageWT = (double) wt/ processes.size();
+        double averageTAT = (double) tat/ processes.size();
+        System.out.println("\n--------------- AVERAGES ----------------");
+        System.out.printf("Average Waiting Time: %.2f\n", averageWT);
+        System.out.printf("Average Turnaround Time: %.2f\n", averageTAT);
+        System.out.println("----------------------------------------------------------------------");
+    }
+
     public static void main(String[] args){
         ReadFile readFile1 = new ReadFile();
         String fileName = readFile1.getSelectedFile();
@@ -25,9 +60,11 @@ public class FCFS {
         FCFS fifo = new FCFS();
         List<Process> sortedProcesses = fifo.sortByArrivalTime(processes);
 
-        System.out.println("\n----- Sorted by ARRIVAL TIME -----");
+        System.out.println("\n------------- Sorted by ARRIVAL TIME --------------");
         for (Process p : sortedProcesses){
             System.out.println(p);
         }
+
+        fifo.FCFSAlgorithm(processes);
     }
 }
