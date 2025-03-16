@@ -7,6 +7,7 @@ class ReadFile {
         List<Process> processList = new ArrayList<>();
 
         if(fileName.endsWith(".txt")){
+            System.out.println("\nReading " + fileName + " file: ");
             try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
                 String line;
                 br.readLine();
@@ -36,10 +37,34 @@ class ReadFile {
     }
     public static void main (String[] args){
         ReadFile read1 = new ReadFile();
-        List<Process> processes = read1.readFile("processes.txt");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hello, select the file number and press Enter: ");
+        System.out.println("1. processes.txt");
+        System.out.println("2. process.ppt");
+        System.out.println("3. sampleData2.txt");
+        int input = sc.nextInt();
+        System.out.println("You chose: " + input);
+        sc.close();
+        List<Process> processes = new ArrayList<>();
+        switch(input){
+            case 1:
+                processes = read1.readFile("processes.txt");
+                break;
+            case 2: 
+                processes = read1.readFile("process.ppt");
+                break;
+            case 3: 
+                processes = read1.readFile("sampleData2.txt");
+                break;
+            default:
+                System.err.println("Not a valid option. Try again.");
+        }
+
+        //List<Process> processes = read1.readFile(input);
 
         for(Process p: processes){
             System.out.println(p);
-        }
+       }
     }
 }
