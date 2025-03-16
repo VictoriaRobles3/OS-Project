@@ -32,6 +32,7 @@ class ReadFile {
         }
         else{
             System.err.println("Cannot read file. File must be in txt format.");
+            System.exit(0);
         }
         return processList;
     }
@@ -58,7 +59,7 @@ class ReadFile {
                         fileName = "sampleData2.txt";
                         break;
                     case 4:
-                        System.out.println("Terminating Program.");
+                        System.out.println("Terminating Program...");
                         sc.close();
                         System.exit(0);
                     default:
