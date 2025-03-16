@@ -3,6 +3,9 @@ public class Process {
     int arrival_time;
     int burst_time;
     int priority;
+    int waitingTime;
+    int turnAroundTime;
+    int completionTime;
 
     public Process(int pid, int arrival_time, int burst_time, int priority){
         this.pid = pid;
