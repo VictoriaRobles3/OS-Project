@@ -7,7 +7,7 @@ class ReadFile {
         List<Process> processList = new ArrayList<>();
 
         if(fileName.endsWith(".txt")){
-            System.out.println("\nReading " + fileName + " file: ");
+            System.out.println("\nReading " + fileName + " file... ");
             try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
                 String line;
                 br.readLine();
@@ -35,8 +35,7 @@ class ReadFile {
         }
         return processList;
     }
-    public static void main (String[] args){
-        ReadFile read1 = new ReadFile();
+    public static String getSelectedFile(){
         String fileName = "";
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -61,7 +60,7 @@ class ReadFile {
                     case 4:
                         System.out.println("Terminating Program.");
                         sc.close();
-                        return;
+                        System.exit(0);
                     default:
                         System.out.println("Not a valid option. Please try again.");
                         continue;
@@ -73,12 +72,15 @@ class ReadFile {
                 sc.next();
             }
         }
-
-        List<Process> processes = read1.readFile(fileName);
+       sc.close();
+       return fileName;
+    }
+    public static void main (String[] args){
+        ReadFile read1 = new ReadFile();
+        List<Process> processes = read1.readFile(getSelectedFile());
 
         for(Process p: processes){
             System.out.println(p);
        }
-       sc.close();
     }
 }
