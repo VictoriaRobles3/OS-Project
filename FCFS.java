@@ -50,7 +50,53 @@ public class FCFS {
         System.out.printf("Average Waiting Time: %.2f\n", averageWT);
         System.out.printf("Average Turnaround Time: %.2f\n", averageTAT);
         System.out.println("----------------------------------------------------------------------");
+
+        printGanttChart(processes);
     }
+
+    public void printGanttChart(List<Process> processes) {
+        System.out.println("\nGantt Chart:");
+    
+        System.out.print(" ");
+        for (Process p : processes) {
+            for (int i = 0; i < p.burst_time; i++) {
+                System.out.print("--");
+            }
+            System.out.print(" ");
+        }
+        System.out.println();
+    
+        System.out.print("|");
+        for (Process p : processes) {
+            for (int i = 0; i < p.burst_time - 1; i++) {
+                System.out.print(" ");
+            }
+            System.out.print("P" + p.pid);
+            for (int i = 0; i < p.burst_time - 1; i++) {
+                System.out.print(" ");
+            }
+            System.out.print("|");
+        }
+        System.out.println();
+    
+        System.out.print(" ");
+        for (Process p : processes) {
+            for (int i = 0; i < p.burst_time; i++) {
+                System.out.print("--");
+            }
+            System.out.print(" ");
+        }
+        System.out.println();
+    
+        System.out.print("0");
+        for (Process p : processes) {
+            for (int i = 0; i < p.burst_time; i++) {
+                System.out.print("  ");
+            }
+            System.out.printf("%2d", p.completionTime);
+        }
+        System.out.println("\n");
+    }    
 
     public static void main(String[] args){
         ReadFile readFile1 = new ReadFile();
