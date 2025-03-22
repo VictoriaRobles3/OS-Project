@@ -1,3 +1,14 @@
+/* Shortest Job First (SJF) Algorithm  
+ * This is a non-preemptive scheduling algorithm that selects the process with the shortest burst time next.  
+ * If multiple processes arrive at the same time, the one with the shortest burst time is chosen first.  
+ * The algorithm sorts processes by arrival time first, then by burst time.  
+ *  
+ * This file will sort the processes based on the algorithm.
+ * Calculate the Waiting time and Turnaround Time for each process.
+ * Calculate the average WT and TAT.
+ */
+
+
 import java.util.*;
 
 
