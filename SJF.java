@@ -79,6 +79,20 @@ class SJF {
         System.out.println("----------------------------------------------------------------------");
 
         printGanttChart(completedProcesses);
+
+        int[] memoryBlocks1 = {100, 500, 200, 300, 600};
+        int[] memoryBlocks2 = {100, 500, 200, 300, 600};
+        int[] memoryBlocks3 = {100, 500, 200, 300, 600};
+
+        MemoryAllocation.firstFit(memoryBlocks1, processes);
+        MemoryAllocation.bestFit(memoryBlocks2, processes);
+        MemoryAllocation.worstFit(memoryBlocks3, processes);
+
+        int[] pageReferenceString = {7, 0, 1, 2, 0, 3, 4, 2, 3, 0, 3, 2};
+        int frameCount = 3;
+        PagingSimulation.fifoPageReplacement(pageReferenceString, frameCount);
+        PagingSimulation.lruPageReplacement(pageReferenceString, frameCount);
+
     }
 
     public void printGanttChart(List<Process> processes) {

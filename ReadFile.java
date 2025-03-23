@@ -20,13 +20,14 @@ class ReadFile {
                 br.readLine();
                 while((line = br.readLine()) != null){
                     String[] fields = line.trim().split("\\s+");
-                    if(fields.length == 4){
+                    if(fields.length == 5){
                         int pid = Integer.parseInt(fields[0]);
                         int arrival_time = Integer.parseInt(fields[1]);
                         int burst_time = Integer.parseInt(fields[2]);
                         int priority = Integer.parseInt(fields[3]);
+                        int memory_requirement = Integer.parseInt(fields[4]);
 
-                        Process process = new Process(pid, arrival_time, burst_time, priority);
+                        Process process = new Process(pid, arrival_time, burst_time, priority, memory_requirement);
                         processList.add(process);
                     } 
                     else{
