@@ -72,7 +72,7 @@ public class MemoryAllocation {
         printAllocation(processes, allocation);
     }
 
-    // Helper method to print allocation results
+    // Print allocation results
     private static void printAllocation(List<Process> processes, int[] allocation) {
         System.out.println("Process\tMemReq\tBlock");
         for (int i = 0; i < processes.size(); i++) {
