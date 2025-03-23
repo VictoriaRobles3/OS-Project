@@ -1,3 +1,7 @@
+/*
+ * This file creates process objects. Gets called in ReadFile.java after the text file is selected and read.
+ */
+
 public class Process {
     int pid;
     int arrival_time;

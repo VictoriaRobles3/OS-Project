@@ -1,3 +1,10 @@
+/*
+ * This file reads text files and calls Process.java to convert data into process objects.
+ * The getSelectedFile method returns a string with the selected file by the user. This string can be 
+ * used in the scheduling algorithms.
+ * Menu-driven approach and invalid input handling implemented.
+ */
+
 import java.io.*;
 import java.util.*;
 
