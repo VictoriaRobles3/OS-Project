@@ -104,12 +104,6 @@ public class FCFS {
         List<Process> processes = readFile1.readFile(fileName);
 
         FCFS fifo = new FCFS();
-        List<Process> sortedProcesses = fifo.sortByArrivalTime(processes);
-
-        System.out.println("\n------------- Sorted by ARRIVAL TIME --------------");
-        for (Process p : sortedProcesses){
-            System.out.println(p);
-        }
 
         fifo.FCFSAlgorithm(processes);
     }
