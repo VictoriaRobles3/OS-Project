@@ -30,6 +30,55 @@ Gantt Chart:
 0           5       8    10
 
 
+--- First-Fit Allocation ---
+Process MemReq  Block
+P1      100     1
+P2      300     2
+P3      200     2
+
+--- Best-Fit Allocation ---
+Process MemReq  Block
+P1      100     1
+P2      300     4
+P3      200     3
+
+--- Worst-Fit Allocation ---
+Process MemReq  Block
+P1      100     5
+P2      300     2
+P3      200     5
+
+--- FIFO Page Replacement ---
+Memory Frames: [7]
+Memory Frames: [7, 0]
+Memory Frames: [7, 0, 1]
+Memory Frames: [0, 1, 2]
+Memory Frames: [0, 1, 2]
+Memory Frames: [1, 2, 3]
+Memory Frames: [2, 3, 4]
+Memory Frames: [2, 3, 4]
+Memory Frames: [2, 3, 4]
+Memory Frames: [3, 4, 0]
+Memory Frames: [3, 4, 0]
+Memory Frames: [4, 0, 2]
+Total Page Faults: 8
+
+--- LRU Page Replacement ---
+Memory Frames: [7]
+Memory Frames: [7, 0]
+Memory Frames: [7, 0, 1]
+Memory Frames: [0, 1, 2]
+Memory Frames: [1, 2, 0]
+Memory Frames: [2, 0, 3]
+Memory Frames: [0, 3, 4]
+Memory Frames: [3, 4, 2]
+Memory Frames: [4, 2, 3]
+Memory Frames: [2, 3, 0]
+Memory Frames: [2, 0, 3]
+Memory Frames: [0, 3, 2]
+Total Page Faults: 8
+
+
 
 SJF Scheduling Algorithm:
 
@@ -58,3 +107,43 @@ Gantt Chart:
 |    P1    | P3 |  P2  |
  ---------- ---- ------ 
 0           5     7      10
+
+
+--- First-Fit Allocation ---
+Process MemReq  Block
+
+--- Best-Fit Allocation ---
+Process MemReq  Block
+
+--- Worst-Fit Allocation ---
+Process MemReq  Block
+
+--- FIFO Page Replacement ---
+Memory Frames: [7]
+Memory Frames: [7, 0]
+Memory Frames: [7, 0, 1]
+Memory Frames: [0, 1, 2]
+Memory Frames: [0, 1, 2]
+Memory Frames: [1, 2, 3]
+Memory Frames: [2, 3, 4]
+Memory Frames: [2, 3, 4]
+Memory Frames: [2, 3, 4]
+Memory Frames: [3, 4, 0]
+Memory Frames: [3, 4, 0]
+Memory Frames: [4, 0, 2]
+Total Page Faults: 8
+
+--- LRU Page Replacement ---
+Memory Frames: [7]
+Memory Frames: [7, 0]
+Memory Frames: [7, 0, 1]
+Memory Frames: [0, 1, 2]
+Memory Frames: [1, 2, 0]
+Memory Frames: [2, 0, 3]
+Memory Frames: [0, 3, 4]
+Memory Frames: [3, 4, 2]
+Memory Frames: [4, 2, 3]
+Memory Frames: [2, 3, 0]
+Memory Frames: [2, 0, 3]
+Memory Frames: [0, 3, 2]
+Total Page Faults: 8
