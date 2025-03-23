@@ -1,0 +1,62 @@
+Output for sampleData2.txt
+
+
+FCFS Scheduling Algorithm:
+
+Hello, select the file number and press Enter: 
+1. processes.txt
+2. process.ppt
+3. sampleData2.txt
+4. Exit
+3
+
+Reading sampleData2.txt file... 
+
+------------------- FCFS/FIFO Scheduling Algorithm -------------------
+PID   Arrival    Burst      Start      Waiting Time    Turnaround Time
+1     0          3          0          0               3              
+4     0          1          3          3               4              
+3     1          1          4          3               4              
+2     2          2          5          3               5              
+
+--------------- AVERAGES ----------------
+Average Waiting Time: 2.25
+Average Turnaround Time: 4.00
+----------------------------------------------------------------------
+
+Gantt Chart:
+ ------ -- -- ---- 
+|  P1  |P4|P3| P2 |
+ ------ -- -- ---- 
+0       3   4   5     7
+
+
+
+SJF Scheduling Algorithm:
+
+Hello, select the file number and press Enter: 
+1. processes.txt
+2. process.ppt
+3. sampleData2.txt
+4. Exit
+3
+
+Reading sampleData2.txt file... 
+
+------------------- Shortest Job First (SJF) Scheduling -------------------
+PID   Arrival    Burst      Start      Waiting Time    Turnaround Time
+4     0          1          0          0               1              
+3     1          1          1          0               1              
+2     2          2          2          0               2              
+1     0          3          4          4               7              
+
+--------------- AVERAGES ----------------
+Average Waiting Time: 1.00
+Average Turnaround Time: 2.75
+----------------------------------------------------------------------
+
+Gantt Chart:
+ -- -- ---- ------ 
+|P4|P3| P2 |  P1  |
+ -- -- ---- ------ 
+0   1   2     4       7
